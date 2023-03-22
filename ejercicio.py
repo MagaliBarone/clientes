@@ -1,4 +1,7 @@
 # valores iniciales
+import sys
+
+
 clientes = []
 productos = []
 
@@ -144,37 +147,43 @@ while True:
 
     print(texto_inicio)
 
-    opcion_elegir = int(input("Ingrese una opción: "))
 
-    if opcion_elegir == 1:
-        crear_cliente()
-
-    elif opcion_elegir == 2:
-        crear_producto()
-            
-    elif opcion_elegir == 3:
-        consultar_cliente_por_id()
-
-    elif opcion_elegir == 4:
-        consultar_cliente_por_nombre_apellido()
-
-    elif opcion_elegir == 5:
-        borrar_cliente()
-
-    elif opcion_elegir == 6:
-        borrar_producto_nombre()
-
-    elif opcion_elegir == 7:
-        imprimir_clientes()
-
-    elif opcion_elegir == 8:
-        imprimir_productos()
-        
-    elif opcion_elegir == "N": # finalizar N / oh no puedo pasarlo a str
-            break
+    opcion_elegir = input("Ingrese una opción: ")
+    print(f'Se eligio {opcion_elegir=}')
+    if opcion_elegir.isdigit() is False:
+        if opcion_elegir == "n" or opcion_elegir == "N":
+            # cierro el programa
+            sys.exit()
+        else:
+            print("por favor elegir una de las opciones 1 a 8")
+            continue
     else:
-        break
+        opcion_elegir = int(opcion_elegir)
 
 
+        if opcion_elegir == 1:
+            crear_cliente()
 
+        elif opcion_elegir == 2:
+            crear_producto()
+                
+        elif opcion_elegir == 3:
+            consultar_cliente_por_id()
 
+        elif opcion_elegir == 4:
+            consultar_cliente_por_nombre_apellido()
+
+        elif opcion_elegir == 5:
+            borrar_cliente()
+
+        elif opcion_elegir == 6:
+            borrar_producto_nombre()
+
+        elif opcion_elegir == 7:
+            imprimir_clientes()
+
+        elif opcion_elegir == 8:
+            imprimir_productos()
+            
+        else:
+            break
